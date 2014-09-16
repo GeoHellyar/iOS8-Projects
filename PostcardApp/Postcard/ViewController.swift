@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         // Code will evaluate when we press the button
         if enterNameTextField.text != ""
         {
+            //Update message text
             if enterMessageTextField.text == ""
             {
                 messageLabel.text = "Please enter a message"
@@ -38,6 +39,7 @@ class ViewController: UIViewController {
             }
             else
             {
+                //Update message text
                 messageLabel.text = "Your message, '" + enterMessageTextField.text + "' has been sent to " + enterNameTextField.text
 //                messageLabel.textColor = UIColor(red: 48, green: 157, blue: 66, alpha: 1.0)
                 
@@ -50,6 +52,7 @@ class ViewController: UIViewController {
         }
         else
         {
+            //Update message text
             messageLabel.text = "Please enter an name"
             messageLabel.textColor = UIColor.redColor()
             messageLabel.hidden = false
