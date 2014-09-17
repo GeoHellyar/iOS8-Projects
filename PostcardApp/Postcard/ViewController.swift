@@ -36,6 +36,7 @@ class ViewController: UIViewController {
                 messageLabel.text = "Please enter a message"
                 messageLabel.textColor = UIColor.redColor()
                 messageLabel.hidden = false
+                mailButton.setTitle("Input Error", forState: UIControlState.Normal)
             }
             else
             {
@@ -47,6 +48,7 @@ class ViewController: UIViewController {
                 enterNameTextField.text = nil
                 enterMessageTextField.text = nil
                 enterMessageTextField.resignFirstResponder()
+                messageLabel.textColor = UIColor.blueColor()
                 mailButton.setTitle("Mail Sent", forState: UIControlState.Normal)
             }
         }
@@ -56,6 +58,7 @@ class ViewController: UIViewController {
             messageLabel.text = "Please enter an name"
             messageLabel.textColor = UIColor.redColor()
             messageLabel.hidden = false
+            mailButton.setTitle("Input Error", forState: UIControlState.Normal)
         }
         
         
