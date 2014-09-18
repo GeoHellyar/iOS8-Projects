@@ -25,10 +25,22 @@ class ViewController: UIViewController {
 
     @IBAction func covertToDogYearsBtnPressed(sender: UIButton)
     {
-        let humanYears = humanYearsTextField.text.toInt()
-        dogYearsLabel.text = "Your " + humanYearsTextField.text + " year old dog is really \(humanYears! * 7) in dog years"
-        dogYearsLabel.hidden = false
+        var humanYears = Double((humanYearsTextField.text as NSString).doubleValue)
+        var dogYears:Double
         
+        if humanYears < 2
+        {
+            dogYears = humanYears * 10.5
+        }
+        else
+        {
+            let yearsOlderThan2 = humanYears - 2
+            dogYears = 21 + yearsOlderThan2 * 4
+            
+        }
+        dogYearsLabel.text = "Your " + humanYearsTextField.text + " year old dog is really \(dogYears) years old in dog years"
+        dogYearsLabel.hidden = false
+        humanYearsTextField.resignFirstResponder()
     }
 
 }

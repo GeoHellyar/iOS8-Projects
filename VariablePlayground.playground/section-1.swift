@@ -12,4 +12,24 @@ var discountOnSale:Float = 0.3
 
 
 
+var mySpeed = 45
 
+if (mySpeed < 70)
+{
+    println("Speed up Grammy")
+}
+else
+{
+    println("Now your moving")
+}
+
+let isTelevisionOn = true
+
+if isTelevisionOn == true
+{
+    println("Stop wasting your time and get back to coding")
+}
+else
+{
+    println("Don't get distracted by the TV, it will suck you in with never ending series that go nowhere")
+}
