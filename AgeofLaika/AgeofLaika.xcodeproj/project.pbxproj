@@ -413,6 +413,7 @@
 				1CF865C919CB0B5D00883A24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1CF865CA19CB0B5D00883A24 /* Build configuration list for PBXNativeTarget "AgeofLaikaTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +422,7 @@
 				1CF865CC19CB0B5D00883A24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
