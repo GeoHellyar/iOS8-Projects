@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1CA3BFDB19D1B20C0007A39D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3BFDA19D1B20C0007A39D /* AppDelegate.swift */; };
+		1CA3BFDD19D1B20C0007A39D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3BFDC19D1B20C0007A39D /* ViewController.swift */; };
+		1CA3BFE019D1B20C0007A39D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3BFDE19D1B20C0007A39D /* Main.storyboard */; };
+		1CA3BFE219D1B20C0007A39D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3BFE119D1B20C0007A39D /* Images.xcassets */; };
+		1CA3BFE519D1B20C0007A39D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3BFE319D1B20C0007A39D /* LaunchScreen.xib */; };
+		1CA3BFF119D1B20C0007A39D /* _9RedBalloonsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3BFF019D1B20C0007A39D /* _9RedBalloonsTests.swift */; };
+		1CA3BFFB19D1B2330007A39D /* redBalloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3BFFA19D1B2330007A39D /* redBalloon.png */; };
+		1CA3C00119D1B3720007A39D /* BerlinTVTower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3BFFC19D1B3720007A39D /* BerlinTVTower.jpg */; };
+		1CA3C00219D1B3720007A39D /* RedBalloon1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3BFFD19D1B3720007A39D /* RedBalloon1.jpg */; };
+		1CA3C00319D1B3720007A39D /* RedBalloon2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3BFFE19D1B3720007A39D /* RedBalloon2.jpg */; };
+		1CA3C00419D1B3720007A39D /* RedBalloon3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3BFFF19D1B3720007A39D /* RedBalloon3.jpg */; };
+		1CA3C00519D1B3720007A39D /* RedBalloon4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1CA3C00019D1B3720007A39D /* RedBalloon4.jpg */; };
+		1CA3C00819D1B6A20007A39D /* Balloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3C00719D1B6A20007A39D /* Balloon.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1CA3BFEB19D1B20C0007A39D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CA3BFCD19D1B20C0007A39D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1CA3BFD419D1B20C0007A39D;
+			remoteInfo = 99RedBalloons;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1CA3BFD519D1B20C0007A39D /* 99RedBalloons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 99RedBalloons.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CA3BFD919D1B20C0007A39D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CA3BFDA19D1B20C0007A39D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1CA3BFDC19D1B20C0007A39D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1CA3BFDF19D1B20C0007A39D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1CA3BFE119D1B20C0007A39D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1CA3BFE419D1B20C0007A39D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		1CA3BFEA19D1B20C0007A39D /* 99RedBalloonsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 99RedBalloonsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CA3BFEF19D1B20C0007A39D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CA3BFF019D1B20C0007A39D /* _9RedBalloonsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _9RedBalloonsTests.swift; sourceTree = "<group>"; };
+		1CA3BFFA19D1B2330007A39D /* redBalloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redBalloon.png; sourceTree = "<group>"; };
+		1CA3BFFC19D1B3720007A39D /* BerlinTVTower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BerlinTVTower.jpg; sourceTree = "<group>"; };
+		1CA3BFFD19D1B3720007A39D /* RedBalloon1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RedBalloon1.jpg; sourceTree = "<group>"; };
+		1CA3BFFE19D1B3720007A39D /* RedBalloon2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RedBalloon2.jpg; sourceTree = "<group>"; };
+		1CA3BFFF19D1B3720007A39D /* RedBalloon3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RedBalloon3.jpg; sourceTree = "<group>"; };
+		1CA3C00019D1B3720007A39D /* RedBalloon4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RedBalloon4.jpg; sourceTree = "<group>"; };
+		1CA3C00719D1B6A20007A39D /* Balloon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Balloon.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CA3BFD219D1B20C0007A39D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CA3BFE719D1B20C0007A39D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1CA3BFCC19D1B20C0007A39D = {
+			isa = PBXGroup;
+			children = (
+				1CA3BFD719D1B20C0007A39D /* 99RedBalloons */,
+				1CA3BFED19D1B20C0007A39D /* 99RedBalloonsTests */,
+				1CA3BFD619D1B20C0007A39D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1CA3BFD619D1B20C0007A39D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CA3BFD519D1B20C0007A39D /* 99RedBalloons.app */,
+				1CA3BFEA19D1B20C0007A39D /* 99RedBalloonsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CA3BFD719D1B20C0007A39D /* 99RedBalloons */ = {
+			isa = PBXGroup;
+			children = (
+				1CA3C00619D1B6820007A39D /* Model */,
+				1CA3BFDA19D1B20C0007A39D /* AppDelegate.swift */,
+				1CA3BFDC19D1B20C0007A39D /* ViewController.swift */,
+				1CA3BFDE19D1B20C0007A39D /* Main.storyboard */,
+				1CA3BFE119D1B20C0007A39D /* Images.xcassets */,
+				1CA3BFE319D1B20C0007A39D /* LaunchScreen.xib */,
+				1CA3BFD819D1B20C0007A39D /* Supporting Files */,
+			);
+			path = 99RedBalloons;
+			sourceTree = "<group>";
+		};
+		1CA3BFD819D1B20C0007A39D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1CA3BFFC19D1B3720007A39D /* BerlinTVTower.jpg */,
+				1CA3BFFD19D1B3720007A39D /* RedBalloon1.jpg */,
+				1CA3BFFE19D1B3720007A39D /* RedBalloon2.jpg */,
+				1CA3BFFF19D1B3720007A39D /* RedBalloon3.jpg */,
+				1CA3C00019D1B3720007A39D /* RedBalloon4.jpg */,
+				1CA3BFFA19D1B2330007A39D /* redBalloon.png */,
+				1CA3BFD919D1B20C0007A39D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1CA3BFED19D1B20C0007A39D /* 99RedBalloonsTests */ = {
+			isa = PBXGroup;
+			children = (
+				1CA3BFF019D1B20C0007A39D /* _9RedBalloonsTests.swift */,
+				1CA3BFEE19D1B20C0007A39D /* Supporting Files */,
+			);
+			path = 99RedBalloonsTests;
+			sourceTree = "<group>";
+		};
+		1CA3BFEE19D1B20C0007A39D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1CA3BFEF19D1B20C0007A39D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1CA3C00619D1B6820007A39D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1CA3C00719D1B6A20007A39D /* Balloon.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CA3BFD419D1B20C0007A39D /* 99RedBalloons */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CA3BFF419D1B20C0007A39D /* Build configuration list for PBXNativeTarget "99RedBalloons" */;
+			buildPhases = (
+				1CA3BFD119D1B20C0007A39D /* Sources */,
+				1CA3BFD219D1B20C0007A39D /* Frameworks */,
+				1CA3BFD319D1B20C0007A39D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = 99RedBalloons;
+			productName = 99RedBalloons;
+			productReference = 1CA3BFD519D1B20C0007A39D /* 99RedBalloons.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1CA3BFE919D1B20C0007A39D /* 99RedBalloonsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CA3BFF719D1B20C0007A39D /* Build configuration list for PBXNativeTarget "99RedBalloonsTests" */;
+			buildPhases = (
+				1CA3BFE619D1B20C0007A39D /* Sources */,
+				1CA3BFE719D1B20C0007A39D /* Frameworks */,
+				1CA3BFE819D1B20C0007A39D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1CA3BFEC19D1B20C0007A39D /* PBXTargetDependency */,
+			);
+			name = 99RedBalloonsTests;
+			productName = 99RedBalloonsTests;
+			productReference = 1CA3BFEA19D1B20C0007A39D /* 99RedBalloonsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CA3BFCD19D1B20C0007A39D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Hellyar;
+				TargetAttributes = {
+					1CA3BFD419D1B20C0007A39D = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+					1CA3BFE919D1B20C0007A39D = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = 1CA3BFD419D1B20C0007A39D;
+					};
+				};
+			};
+			buildConfigurationList = 1CA3BFD019D1B20C0007A39D /* Build configuration list for PBXProject "99RedBalloons" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1CA3BFCC19D1B20C0007A39D;
+			productRefGroup = 1CA3BFD619D1B20C0007A39D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1CA3BFD419D1B20C0007A39D /* 99RedBalloons */,
+				1CA3BFE919D1B20C0007A39D /* 99RedBalloonsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CA3BFD319D1B20C0007A39D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CA3C00119D1B3720007A39D /* BerlinTVTower.jpg in Resources */,
+				1CA3BFE019D1B20C0007A39D /* Main.storyboard in Resources */,
+				1CA3BFE519D1B20C0007A39D /* LaunchScreen.xib in Resources */,
+				1CA3C00419D1B3720007A39D /* RedBalloon3.jpg in Resources */,
+				1CA3C00219D1B3720007A39D /* RedBalloon1.jpg in Resources */,
+				1CA3BFE219D1B20C0007A39D /* Images.xcassets in Resources */,
+				1CA3C00519D1B3720007A39D /* RedBalloon4.jpg in Resources */,
+				1CA3C00319D1B3720007A39D /* RedBalloon2.jpg in Resources */,
+				1CA3BFFB19D1B2330007A39D /* redBalloon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CA3BFE819D1B20C0007A39D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CA3BFD119D1B20C0007A39D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CA3BFDD19D1B20C0007A39D /* ViewController.swift in Sources */,
+				1CA3C00819D1B6A20007A39D /* Balloon.swift in Sources */,
+				1CA3BFDB19D1B20C0007A39D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CA3BFE619D1B20C0007A39D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CA3BFF119D1B20C0007A39D /* _9RedBalloonsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1CA3BFEC19D1B20C0007A39D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1CA3BFD419D1B20C0007A39D /* 99RedBalloons */;
+			targetProxy = 1CA3BFEB19D1B20C0007A39D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1CA3BFDE19D1B20C0007A39D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CA3BFDF19D1B20C0007A39D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1CA3BFE319D1B20C0007A39D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CA3BFE419D1B20C0007A39D /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1CA3BFF219D1B20C0007A39D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1CA3BFF319D1B20C0007A39D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1CA3BFF519D1B20C0007A39D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = 99RedBalloons/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1CA3BFF619D1B20C0007A39D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = 99RedBalloons/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1CA3BFF819D1B20C0007A39D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = 99RedBalloonsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/99RedBalloons.app/99RedBalloons";
+			};
+			name = Debug;
+		};
+		1CA3BFF919D1B20C0007A39D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = 99RedBalloonsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/99RedBalloons.app/99RedBalloons";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CA3BFD019D1B20C0007A39D /* Build configuration list for PBXProject "99RedBalloons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CA3BFF219D1B20C0007A39D /* Debug */,
+				1CA3BFF319D1B20C0007A39D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CA3BFF419D1B20C0007A39D /* Build configuration list for PBXNativeTarget "99RedBalloons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CA3BFF519D1B20C0007A39D /* Debug */,
+				1CA3BFF619D1B20C0007A39D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1CA3BFF719D1B20C0007A39D /* Build configuration list for PBXNativeTarget "99RedBalloonsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CA3BFF819D1B20C0007A39D /* Debug */,
+				1CA3BFF919D1B20C0007A39D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1CA3BFCD19D1B20C0007A39D /* Project object */;
+}
