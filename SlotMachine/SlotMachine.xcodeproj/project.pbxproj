@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1C02BF19D8F0F800A57FAE /* contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1C02BE19D8F0F800A57FAE /* contants.swift */; };
 		1CB6480319D77917009D08F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6480219D77917009D08F8 /* AppDelegate.swift */; };
 		1CB6480519D77917009D08F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6480419D77917009D08F8 /* ViewController.swift */; };
 		1CB6480819D77917009D08F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6480619D77917009D08F8 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C1C02BE19D8F0F800A57FAE /* contants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contants.swift; sourceTree = "<group>"; };
 		1CB647FD19D77917009D08F8 /* SlotMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlotMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CB6480119D77917009D08F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CB6480219D77917009D08F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				1CB6480119D77917009D08F8 /* Info.plist */,
+				1C1C02BE19D8F0F800A57FAE /* contants.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CB6480519D77917009D08F8 /* ViewController.swift in Sources */,
+				1C1C02BF19D8F0F800A57FAE /* contants.swift in Sources */,
 				1CB6480319D77917009D08F8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +411,7 @@
 				1CB6481E19D77917009D08F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1CB6481F19D77917009D08F8 /* Build configuration list for PBXNativeTarget "SlotMachineTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +420,7 @@
 				1CB6482119D77917009D08F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
