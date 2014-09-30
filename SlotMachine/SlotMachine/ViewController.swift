@@ -17,12 +17,12 @@ class ViewController: UIViewController
     var fourthContainer: UIView!
     
     // First Container
-    var titleLabel:UILabel!
+    var titleLabel: UILabel!
     
     // Second Container
     let kNumberOfContainers = 3
     let kNumberOfSlots = 3
-    let kMaringForSlot:CGFloat = 2.0
+    let kMaringForSlot: CGFloat = 2.0
     
     
     // Third Container
@@ -40,13 +40,16 @@ class ViewController: UIViewController
     var maxButton: UIButton!
     var spinButton: UIButton!
     
+    // Slots Array
+    var slots: [[Slot]] = []
+    
     // Constants
-    let kMarginForView:CGFloat = 10.0
-    let kMarginForButtons:CGFloat = 10.0
-    let kSixth:CGFloat = 1.0/6.0
-    let kThird:CGFloat = 1/3
-    let kFourth:CGFloat = 1/4
-    let kTenth:CGFloat = 1.0/10.0
+    let kMarginForView: CGFloat = 10.0
+    let kMarginForButtons: CGFloat = 10.0
+    let kSixth: CGFloat = 1.0/6.0
+    let kThird: CGFloat = 1/3
+    let kFourth: CGFloat = 1/4
+    let kTenth: CGFloat = 1.0/10.0
     let kHalf: CGFloat = 1.0/2.0
     let kEighth: CGFloat = 1.0/8.0
     
@@ -88,7 +91,10 @@ class ViewController: UIViewController
     
     func spinButtonPressed(button:UIButton)
     {
+        removeSlotImageViews()
+        slots = Factory.createSlots()
         
+        setupSecondContainer(secondContainer)
     }
 
     func setupContainerView()
@@ -98,7 +104,7 @@ class ViewController: UIViewController
         self.view.addSubview(self.firstContainer)
         
         self.secondContainer = UIView(frame: CGRectMake(self.view.bounds.origin.x + kMarginForView, firstContainer.frame.height, self.view.bounds.width - kMarginForView * 2, self.view.bounds.height * (3 * kSixth)))
-        self.secondContainer.backgroundColor = UIColor.blackColor()
+//        self.secondContainer.backgroundColor = UIColor.blackColor()
         self.view.addSubview(self.secondContainer)
         
         self.thirdContainer = UIView(frame: CGRectMake(self.view.bounds.origin.x, firstContainer.frame.height + secondContainer.frame.height, self.view.bounds.width, self.view.bounds.height * kSixth))
@@ -128,8 +134,21 @@ class ViewController: UIViewController
         {
             for var slotNumber = 0; slotNumber < kNumberOfSlots; slotNumber++
             {
+                var slot: Slot
                 var slotImageView = UIImageView()
-                slotImageView.backgroundColor = UIColor.yellowColor()
+                
+                if slots.count != 0
+                {
+                    let slotContainer = slots[containerNumber]
+                    slot = slotContainer[slotNumber]
+                    slotImageView.image = slot.image
+                }
+                else
+                {
+                    slotImageView.image = UIImage(named: "Ace")
+                }
+                
+                
                 slotImageView.frame = CGRectMake(containerView.bounds.origin.x + containerView.bounds.size.width * CGFloat(containerNumber) * kThird,
                     containerView.bounds.origin.y + containerView.bounds.size.height * CGFloat(slotNumber) * kThird,
                     containerView.bounds.width * kThird - kMaringForSlot,
@@ -195,7 +214,7 @@ class ViewController: UIViewController
         containerView.addSubview(betTitleLabel)
         
         winnerPaidTitleLable = UILabel(frame: CGRectMake(containerView.frame.width * kThird * 2 + kMarginForButtons, containerView.frame.height * kFourth * 2, containerView.frame.width * kThird - kMarginForButtons * 3, containerView.frame.height * kThird))
-        winnerPaidTitleLable.text = "Winner Paid"
+        winnerPaidTitleLable.text = "Won"
         winnerPaidTitleLable.textColor = slotsDarkGreenColor
         winnerPaidTitleLable.font = UIFont(name: "Menlo-Bold", size: 14)
 //        winnerPaidTitleLable.sizeToFit()
@@ -211,6 +230,7 @@ class ViewController: UIViewController
         resetButton = UIButton(frame: CGRectMake(20 , containerView.frame.height * kThird * 1.75, containerView.frame.width * kThird - kMarginForButtons * 4, containerView.frame.height * kSixth))
         resetButton.setTitle("Reset", forState: UIControlState.Normal)
         resetButton.setTitleColor(slotsBlueColor, forState: UIControlState.Normal)
+        resetButton.setTitleColor(slotsDarkBlueColor, forState: UIControlState.Highlighted)
         resetButton.titleLabel?.font = UIFont(name: "MarkerFelt-Wide", size: 18)
         resetButton.backgroundColor = slotsDarkBlueColor
 //        resetButton.sizeToFit()
@@ -221,6 +241,7 @@ class ViewController: UIViewController
         betOneButton = UIButton(frame: CGRectMake(containerView.frame.width * kThird, containerView.frame.height * kThird * 1.75, containerView.frame.width * kThird - kMarginForButtons * 2, containerView.frame.height * kSixth))
         betOneButton.setTitle("Bet One", forState: UIControlState.Normal)
         betOneButton.setTitleColor(slotsBlueColor, forState: UIControlState.Normal)
+        betOneButton.setTitleColor(slotsDarkBlueColor, forState: UIControlState.Highlighted)
         betOneButton.titleLabel?.font = UIFont(name: "MarkerFelt-Wide", size: 18)
         betOneButton.backgroundColor = slotsDarkBlueColor
 //        betOneButton.sizeToFit()
@@ -231,6 +252,7 @@ class ViewController: UIViewController
         maxButton = UIButton(frame: CGRectMake(containerView.frame.width * kThird * 2, containerView.frame.height * kThird * 1.75, containerView.frame.width * kThird - kMarginForButtons * 2, containerView.frame.height * kSixth))
         maxButton.setTitle("Max Bet", forState: UIControlState.Normal)
         maxButton.setTitleColor(slotsBlueColor, forState: UIControlState.Normal)
+        maxButton.setTitleColor(slotsDarkBlueColor, forState: UIControlState.Highlighted)
         maxButton.titleLabel?.font = UIFont(name: "MarkerFelt-Wide", size: 18)
         maxButton.backgroundColor = slotsDarkBlueColor
 //        maxButton.sizeToFit()
@@ -241,11 +263,29 @@ class ViewController: UIViewController
         spinButton = UIButton(frame: CGRectMake( 20, 20, containerView.frame.width - 40, containerView.frame.height * kThird))
         spinButton.setTitle("Spin", forState: UIControlState.Normal)
         spinButton.setTitleColor(slotsBlueColor, forState: UIControlState.Normal)
-        spinButton.titleLabel?.font = UIFont(name: "MarkerFelt-Wide", size: 22)
+        spinButton.setTitleColor(slotsDarkBlueColor, forState: UIControlState.Highlighted)
+        spinButton.titleLabel?.font = UIFont(name: "MarkerFelt-Wide", size: 30)
         spinButton.backgroundColor = slotsDarkBlueColor
 //        spinButton.center = CGPointMake(containerView.frame.width , containerView.frame.height * kThird)
         spinButton.addTarget(self, action: "spinButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         containerView.addSubview(spinButton)
     }
+    
+    // MARK: Helper Functions
+    
+    func removeSlotImageViews ()
+    {
+        if secondContainer != nil
+        {
+            let container:UIView? = secondContainer!
+            
+            let subViews:Array? = container!.subviews
+            for view in subViews!
+            {
+                view.removeFromSuperview()
+            }
+        }
+    }
+
 }
 
