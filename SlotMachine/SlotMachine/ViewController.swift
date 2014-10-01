@@ -34,6 +34,10 @@ class ViewController: UIViewController
     var betTitleLabel: UILabel!
     var winnerPaidTitleLable: UILabel!
     
+    var credits: Int = 0
+    var currentBet: Int = 0
+    var winnings: Int = 0
+    
     // Fourth Container
     var resetButton: UIButton!
     var betOneButton: UIButton!
@@ -60,10 +64,12 @@ class ViewController: UIViewController
         // Do any additional setup after loading the view, typically from a nib.
         setupContainerView()
         
+        // Setup Container Views Programatically
         setupFirstContainer(firstContainer)
-        setupSecondContainer(secondContainer)
         setupThirdContaianer(thirdContainer)
         setupFourthContainer(fourthContainer)
+        
+        hardReset()
     }
 
     override func didReceiveMemoryWarning()
@@ -76,17 +82,50 @@ class ViewController: UIViewController
     
     func resetButtonPressed(button:UIButton)
     {
-        println("Button Pressed")
+        hardReset()
     }
     
     func betOneButtonPressed(button:UIButton)
     {
+        if credits <= 0
+        {
+            showAlertWithText(header: "No more credits", message: "Reset Game")
+        }
+        else
+        {
+            if currentBet < 5
+            {
+                currentBet += 1
+                credits -= 1
+                updateMainView()
+            }
+            else
+            {
+                showAlertWithText(message: "You can only bet 5 credits at a time")
+            }
+        }
         
     }
     
     func maxBetButtonPressed(button:UIButton)
     {
-        
+        if credits <= 5
+        {
+            showAlertWithText(header: "Not enough credits", message: "Bet less")
+        }
+        else
+        {
+            if currentBet < 5
+            {
+                credits -= 5 - currentBet
+                currentBet = 5
+                updateMainView()
+            }
+            else
+            {
+                showAlertWithText(message: "You can only bet 5 credits at a time")
+            }
+        }
     }
     
     func spinButtonPressed(button:UIButton)
@@ -95,12 +134,19 @@ class ViewController: UIViewController
         slots = Factory.createSlots()
         
         setupSecondContainer(secondContainer)
+        
+        var winningMultiplier = SlotBrain.computeWinnings(slots)
+        winnings = winningMultiplier * currentBet
+        credits += winnings
+        currentBet = 0
+        
+        updateMainView()
     }
 
     func setupContainerView()
     {
         self.firstContainer = UIView(frame: CGRectMake(self.view.bounds.origin.x,self.view.bounds.origin.y , self.view.bounds.width, self.view.bounds.height * kTenth))
-        self.firstContainer.backgroundColor = slotsRedColor
+        self.firstContainer.backgroundColor = slotsTitleBGColor
         self.view.addSubview(self.firstContainer)
         
         self.secondContainer = UIView(frame: CGRectMake(self.view.bounds.origin.x + kMarginForView, firstContainer.frame.height, self.view.bounds.width - kMarginForView * 2, self.view.bounds.height * (3 * kSixth)))
@@ -108,11 +154,11 @@ class ViewController: UIViewController
         self.view.addSubview(self.secondContainer)
         
         self.thirdContainer = UIView(frame: CGRectMake(self.view.bounds.origin.x, firstContainer.frame.height + secondContainer.frame.height, self.view.bounds.width, self.view.bounds.height * kSixth))
-        self.thirdContainer.backgroundColor = slotsGreenColor
+        self.thirdContainer.backgroundColor = slots3rdCVBGColor
         self.view.addSubview(self.thirdContainer)
         
         self.fourthContainer = UIView(frame: CGRectMake(self.view.bounds.origin.x, firstContainer.frame.height + secondContainer.frame.height + thirdContainer.frame.height, self.view.bounds.width, self.view.bounds.height * (kSixth + kTenth)))
-        self.fourthContainer.backgroundColor = slotsBlueColor
+        self.fourthContainer.backgroundColor = slots4thCVBGColor
         self.view.addSubview(self.fourthContainer)
     }
     
@@ -120,7 +166,7 @@ class ViewController: UIViewController
     {
         titleLabel = UILabel()
         titleLabel.text = "Super Slots"
-        titleLabel.textColor = slotsDarkRedColor
+        titleLabel.textColor = slotsTitleColor
         titleLabel.font = UIFont(name: "MarkerFelt-Wide", size: 35)
         titleLabel.sizeToFit()
         titleLabel.center = containerView.center
@@ -164,38 +210,38 @@ class ViewController: UIViewController
         // Labels
         creditsLabel = UILabel(frame: CGRectMake(containerView.bounds.origin.x + kMarginForButtons * 2, containerView.frame.height * kFourth, containerView.frame.width * kThird - kMarginForButtons, containerView.frame.height * kThird))
         creditsLabel.text = "000000"
-        creditsLabel.textColor = slotsGreenColor
+        creditsLabel.textColor = slots3rdCVBGColor
         creditsLabel.font = UIFont(name: "Menlo-Bold", size: 26)
 //        creditsLabel.sizeToFit()
 //        creditsLabel.center = CGPointMake(containerView.frame.width * kSixth, containerView.frame.height * kThird + 10)
         creditsLabel.textAlignment = NSTextAlignment.Center
-        creditsLabel.backgroundColor = slotsDarkGreenColor
+        creditsLabel.backgroundColor = slots3rdCVElementColor
         containerView.addSubview(creditsLabel)
         
         betLabel = UILabel(frame: CGRectMake(containerView.frame.width * kThird + kMarginForButtons * 2, containerView.frame.height * kFourth, containerView.frame.width * kThird - kMarginForButtons * 2, containerView.frame.height * kThird))
         betLabel.text = "0000"
-        betLabel.textColor = slotsGreenColor
+        betLabel.textColor = slots3rdCVBGColor
         betLabel.font = UIFont(name: "Menlo-Bold", size: 26)
 //        betLabel.sizeToFit()
 //        betLabel.center = CGPointMake(containerView.frame.width * kSixth * 3, containerView.frame.height * kThird + 10)
         betLabel.textAlignment = NSTextAlignment.Center
-        betLabel.backgroundColor = slotsDarkGreenColor
+        betLabel.backgroundColor = slots3rdCVElementColor
         containerView.addSubview(betLabel)
         
         winnerPaidLabel = UILabel(frame: CGRectMake(containerView.frame.width * kThird * 2 + kMarginForButtons, containerView.frame.height * kFourth, containerView.frame.width * kThird - kMarginForButtons * 3, containerView.frame.height * kThird))
         winnerPaidLabel.text = "0000"
-        winnerPaidLabel.textColor = slotsGreenColor
+        winnerPaidLabel.textColor = slots3rdCVBGColor
         winnerPaidLabel.font = UIFont(name: "Menlo-Bold", size: 26)
 //        winnerPaidLabel.sizeToFit()
 //        winnerPaidLabel.center = CGPointMake(containerView.frame.width * kSixth * 5, containerView.frame.height * kThird + 10)
         winnerPaidLabel.textAlignment = NSTextAlignment.Center
-        winnerPaidLabel.backgroundColor = slotsDarkGreenColor
+        winnerPaidLabel.backgroundColor = slots3rdCVElementColor
         containerView.addSubview(winnerPaidLabel)
         
         // Titles
         creditsTitleLabel = UILabel(frame: CGRectMake(containerView.bounds.origin.x + kMarginForButtons * 2, containerView.frame.height * kFourth * 2, containerView.frame.width * kThird - kMarginForButtons, containerView.frame.height * kThird))
         creditsTitleLabel.text = "Credits"
-        creditsTitleLabel.textColor = slotsDarkGreenColor
+        creditsTitleLabel.textColor = slots3rdCVElementColor
         creditsTitleLabel.font = UIFont(name: "Menlo-Bold", size: 14)
 //        creditsTitleLabel.sizeToFit()
 //        creditsTitleLabel.center = CGPointMake(containerView.frame.width * kSixth, containerView.frame.height * kThird * 2)
@@ -205,7 +251,7 @@ class ViewController: UIViewController
         
         betTitleLabel = UILabel(frame: CGRectMake(containerView.frame.width * kThird + kMarginForButtons * 2, containerView.frame.height * kFourth * 2, containerView.frame.width * kThird - kMarginForButtons * 2, containerView.frame.height * kThird))
         betTitleLabel.text = "Bet"
-        betTitleLabel.textColor = slotsDarkGreenColor
+        betTitleLabel.textColor = slots3rdCVElementColor
         betTitleLabel.font = UIFont(name: "Menlo-Bold", size: 14)
 //        betTitleLabel.sizeToFit()
 //        betTitleLabel.center = CGPointMake(containerView.frame.width * kSixth * 3, containerView.frame.height * kThird * 2)
@@ -215,7 +261,7 @@ class ViewController: UIViewController
         
         winnerPaidTitleLable = UILabel(frame: CGRectMake(containerView.frame.width * kThird * 2 + kMarginForButtons, containerView.frame.height * kFourth * 2, containerView.frame.width * kThird - kMarginForButtons * 3, containerView.frame.height * kThird))
         winnerPaidTitleLable.text = "Won"
-        winnerPaidTitleLable.textColor = slotsDarkGreenColor
+        winnerPaidTitleLable.textColor = slots3rdCVElementColor
         winnerPaidTitleLable.font = UIFont(name: "Menlo-Bold", size: 14)
 //        winnerPaidTitleLable.sizeToFit()
 //        winnerPaidTitleLable.center = CGPointMake(containerView.frame.width * kSixth * 5, containerView.frame.height * kThird * 2)
@@ -229,10 +275,10 @@ class ViewController: UIViewController
     {
         resetButton = UIButton(frame: CGRectMake(20 , containerView.frame.height * kThird * 1.75, containerView.frame.width * kThird - kMarginForButtons * 4, containerView.frame.height * kSixth))
         resetButton.setTitle("Reset", forState: UIControlState.Normal)
-        resetButton.setTitleColor(slotsBlueColor, forState: UIControlState.Normal)
-        resetButton.setTitleColor(slotsDarkBlueColor, forState: UIControlState.Highlighted)
+        resetButton.setTitleColor(slots4thCVBGColor, forState: UIControlState.Normal)
+        resetButton.setTitleColor(slots4thCVElementsColor, forState: UIControlState.Highlighted)
         resetButton.titleLabel?.font = UIFont(name: "MarkerFelt-Wide", size: 18)
-        resetButton.backgroundColor = slotsDarkBlueColor
+        resetButton.backgroundColor = slots4thCVElementsColor
 //        resetButton.sizeToFit()
 //        resetButton.center = CGPointMake(containerView.frame.width * kEighth, containerView.frame.height * kThird * 2)
         resetButton.addTarget(self, action: "resetButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -240,10 +286,10 @@ class ViewController: UIViewController
         
         betOneButton = UIButton(frame: CGRectMake(containerView.frame.width * kThird, containerView.frame.height * kThird * 1.75, containerView.frame.width * kThird - kMarginForButtons * 2, containerView.frame.height * kSixth))
         betOneButton.setTitle("Bet One", forState: UIControlState.Normal)
-        betOneButton.setTitleColor(slotsBlueColor, forState: UIControlState.Normal)
-        betOneButton.setTitleColor(slotsDarkBlueColor, forState: UIControlState.Highlighted)
+        betOneButton.setTitleColor(slots4thCVBGColor, forState: UIControlState.Normal)
+        betOneButton.setTitleColor(slots4thCVElementsColor, forState: UIControlState.Highlighted)
         betOneButton.titleLabel?.font = UIFont(name: "MarkerFelt-Wide", size: 18)
-        betOneButton.backgroundColor = slotsDarkBlueColor
+        betOneButton.backgroundColor = slots4thCVElementsColor
 //        betOneButton.sizeToFit()
 //        betOneButton.center = CGPointMake(containerView.frame.width * kEighth * 3, containerView.frame.height * kThird * 2)
         betOneButton.addTarget(self, action: "betOneButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -251,10 +297,10 @@ class ViewController: UIViewController
         
         maxButton = UIButton(frame: CGRectMake(containerView.frame.width * kThird * 2, containerView.frame.height * kThird * 1.75, containerView.frame.width * kThird - kMarginForButtons * 2, containerView.frame.height * kSixth))
         maxButton.setTitle("Max Bet", forState: UIControlState.Normal)
-        maxButton.setTitleColor(slotsBlueColor, forState: UIControlState.Normal)
-        maxButton.setTitleColor(slotsDarkBlueColor, forState: UIControlState.Highlighted)
+        maxButton.setTitleColor(slots4thCVBGColor, forState: UIControlState.Normal)
+        maxButton.setTitleColor(slots4thCVElementsColor, forState: UIControlState.Highlighted)
         maxButton.titleLabel?.font = UIFont(name: "MarkerFelt-Wide", size: 18)
-        maxButton.backgroundColor = slotsDarkBlueColor
+        maxButton.backgroundColor = slots4thCVElementsColor
 //        maxButton.sizeToFit()
 //        maxButton.center = CGPointMake(containerView.frame.width * kEighth * 6, containerView.frame.height * kThird * 2)
         maxButton.addTarget(self, action: "maxBetButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -262,10 +308,10 @@ class ViewController: UIViewController
         
         spinButton = UIButton(frame: CGRectMake( 20, 20, containerView.frame.width - 40, containerView.frame.height * kThird))
         spinButton.setTitle("Spin", forState: UIControlState.Normal)
-        spinButton.setTitleColor(slotsBlueColor, forState: UIControlState.Normal)
-        spinButton.setTitleColor(slotsDarkBlueColor, forState: UIControlState.Highlighted)
+        spinButton.setTitleColor(slots4thCVBGColor, forState: UIControlState.Normal)
+        spinButton.setTitleColor(slots4thCVElementsColor, forState: UIControlState.Highlighted)
         spinButton.titleLabel?.font = UIFont(name: "MarkerFelt-Wide", size: 30)
-        spinButton.backgroundColor = slotsDarkBlueColor
+        spinButton.backgroundColor = slots4thCVElementsColor
 //        spinButton.center = CGPointMake(containerView.frame.width , containerView.frame.height * kThird)
         spinButton.addTarget(self, action: "spinButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         containerView.addSubview(spinButton)
@@ -285,6 +331,32 @@ class ViewController: UIViewController
                 view.removeFromSuperview()
             }
         }
+    }
+    
+    func hardReset()
+    {
+        removeSlotImageViews()
+        slots.removeAll(keepCapacity: true)
+        setupSecondContainer(secondContainer)
+        credits = 50
+        winnings = 0
+        currentBet = 0
+        
+        updateMainView()
+    }
+    
+    func updateMainView ()
+    {
+        creditsLabel.text = "\(credits)"
+        betLabel.text = "\(currentBet)"
+        winnerPaidLabel.text = "\(winnings)"
+    }
+    
+    func showAlertWithText(header: String = "Warning", message: String)
+    {
+        var alert = UIAlertController(title: header, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
     }
 
 }
