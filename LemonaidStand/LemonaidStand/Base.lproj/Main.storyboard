@@ -33,7 +33,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J5q-Po-NAo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop" translatesAutoresizingMaskIntoConstraints="NO" id="J5q-Po-NAo">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="1" green="0.56199034049999996" blue="0.54135693029999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -44,31 +44,13 @@
                                         <exclude reference="XbQ-2O-38Z"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="65" width="83" height="376"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="XbQ-2O-38Z"/>
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x2b-ih-ko6">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.317737039" green="0.40803017079999998" blue="0.88166610050000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="x2b-ih-ko6" secondAttribute="height" multiplier="239:189" id="SXk-gw-UIK"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="SXk-gw-UIK"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <exclude reference="SXk-gw-UIK"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hrG-To-vaw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixology" translatesAutoresizingMaskIntoConstraints="NO" id="hrG-To-vaw">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.88166610050000005" green="0.84414695539999995" blue="0.46374760240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -101,6 +83,10 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="supplies" translatesAutoresizingMaskIntoConstraints="NO" id="x2b-ih-ko6">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.317737039" green="0.40803017079999998" blue="0.88166610050000005" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -124,6 +110,9 @@
                             <constraint firstItem="1Wh-Hc-35P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hxz-Up-Qgf"/>
                             <constraint firstItem="wEM-ZS-51w" firstAttribute="top" secondItem="J5q-Po-NAo" secondAttribute="bottom" id="oj3-jf-uwa"/>
                             <constraint firstAttribute="trailing" secondItem="1Wh-Hc-35P" secondAttribute="trailing" id="riF-8q-aPY"/>
+                            <constraint firstItem="hrG-To-vaw" firstAttribute="top" secondItem="x2b-ih-ko6" secondAttribute="bottom" constant="1" id="sfa-Gy-tgR">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="x2b-ih-ko6" firstAttribute="top" secondItem="1Wh-Hc-35P" secondAttribute="bottom" constant="8" id="ue8-Mk-9w0">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
@@ -133,54 +122,56 @@
                             <mask key="subviews">
                                 <exclude reference="wEM-ZS-51w"/>
                                 <exclude reference="J5q-Po-NAo"/>
-                                <exclude reference="x2b-ih-ko6"/>
                                 <exclude reference="hrG-To-vaw"/>
                                 <exclude reference="1Wh-Hc-35P"/>
+                                <exclude reference="x2b-ih-ko6"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="LIA-7s-gbE"/>
                                 <exclude reference="Efs-QI-LQf"/>
                                 <exclude reference="hxz-Up-Qgf"/>
                                 <exclude reference="riF-8q-aPY"/>
                                 <exclude reference="5af-21-JR6"/>
                                 <exclude reference="UVf-Fw-hNX"/>
-                                <exclude reference="G2Y-og-LMp"/>
-                                <exclude reference="bnH-UI-r1U"/>
-                                <exclude reference="cFV-7B-KCT"/>
-                                <exclude reference="ue8-Mk-9w0"/>
                                 <exclude reference="8kB-ds-zq6"/>
                                 <exclude reference="YkR-yj-xDk"/>
+                                <exclude reference="sfa-Gy-tgR"/>
                                 <exclude reference="4sc-SZ-aSX"/>
                                 <exclude reference="DiH-gu-Jmu"/>
                                 <exclude reference="oj3-jf-uwa"/>
                                 <exclude reference="wJ5-uU-WyB"/>
-                                <exclude reference="LIA-7s-gbE"/>
+                                <exclude reference="G2Y-og-LMp"/>
+                                <exclude reference="bnH-UI-r1U"/>
+                                <exclude reference="cFV-7B-KCT"/>
+                                <exclude reference="ue8-Mk-9w0"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="wEM-ZS-51w"/>
                                 <include reference="J5q-Po-NAo"/>
-                                <include reference="x2b-ih-ko6"/>
                                 <include reference="hrG-To-vaw"/>
                                 <include reference="1Wh-Hc-35P"/>
+                                <include reference="x2b-ih-ko6"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="LIA-7s-gbE"/>
                                 <include reference="Efs-QI-LQf"/>
                                 <include reference="hxz-Up-Qgf"/>
                                 <include reference="riF-8q-aPY"/>
                                 <include reference="5af-21-JR6"/>
                                 <include reference="UVf-Fw-hNX"/>
-                                <include reference="G2Y-og-LMp"/>
-                                <include reference="bnH-UI-r1U"/>
-                                <include reference="cFV-7B-KCT"/>
-                                <include reference="ue8-Mk-9w0"/>
                                 <include reference="8kB-ds-zq6"/>
                                 <include reference="YkR-yj-xDk"/>
+                                <include reference="sfa-Gy-tgR"/>
                                 <include reference="4sc-SZ-aSX"/>
                                 <include reference="DiH-gu-Jmu"/>
                                 <include reference="oj3-jf-uwa"/>
                                 <include reference="wJ5-uU-WyB"/>
-                                <include reference="LIA-7s-gbE"/>
+                                <include reference="G2Y-og-LMp"/>
+                                <exclude reference="bnH-UI-r1U"/>
+                                <include reference="cFV-7B-KCT"/>
+                                <include reference="ue8-Mk-9w0"/>
                             </mask>
                         </variation>
                     </view>
@@ -194,5 +185,8 @@
     <resources>
         <image name="Header" width="640" height="130"/>
         <image name="footer" width="640" height="255"/>
+        <image name="mixology" width="525" height="374"/>
+        <image name="shop" width="115" height="752"/>
+        <image name="supplies" width="525" height="377"/>
     </resources>
 </document>
