@@ -107,6 +107,12 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KV-ou-IS0">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntr-Wy-Iga">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
@@ -367,12 +373,12 @@
                                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="11"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KV-ou-IS0">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="22"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixologyText" translatesAutoresizingMaskIntoConstraints="NO" id="hEI-Ux-hme">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="147" y="247" width="98" height="39"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -532,6 +538,7 @@
                                 <exclude reference="x2b-ih-ko6"/>
                                 <exclude reference="vBG-GY-lFU"/>
                                 <exclude reference="y8Z-WI-RhC"/>
+                                <exclude reference="1KV-ou-IS0"/>
                                 <exclude reference="ntr-Wy-Iga"/>
                                 <exclude reference="J5q-Po-NAo"/>
                                 <exclude reference="5y0-X8-5kN"/>
@@ -549,7 +556,7 @@
                                 <exclude reference="6CC-XX-Sy6"/>
                                 <exclude reference="Rqs-Gj-1IZ"/>
                                 <exclude reference="h1X-Hx-fYQ"/>
-                                <exclude reference="1KV-ou-IS0"/>
+                                <exclude reference="hEI-Ux-hme"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Efs-QI-LQf"/>
@@ -665,6 +672,7 @@
                                 <include reference="x2b-ih-ko6"/>
                                 <include reference="vBG-GY-lFU"/>
                                 <include reference="y8Z-WI-RhC"/>
+                                <include reference="1KV-ou-IS0"/>
                                 <include reference="ntr-Wy-Iga"/>
                                 <include reference="J5q-Po-NAo"/>
                                 <include reference="5y0-X8-5kN"/>
@@ -682,7 +690,7 @@
                                 <include reference="6CC-XX-Sy6"/>
                                 <include reference="Rqs-Gj-1IZ"/>
                                 <include reference="h1X-Hx-fYQ"/>
-                                <include reference="1KV-ou-IS0"/>
+                                <include reference="hEI-Ux-hme"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Efs-QI-LQf"/>
@@ -804,6 +812,7 @@
         <image name="iceCube" width="72" height="74"/>
         <image name="lemon" width="90" height="80"/>
         <image name="mixology" width="525" height="374"/>
+        <image name="mixologyText" width="173" height="30"/>
         <image name="priceTag" width="101" height="80"/>
         <image name="shop" width="115" height="752"/>
         <image name="shopText" width="83" height="29"/>
