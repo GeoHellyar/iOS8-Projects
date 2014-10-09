@@ -407,6 +407,7 @@
 				1C7899BA19E325EE000F4719 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C7899BB19E325EE000F4719 /* Build configuration list for PBXNativeTarget "LemonaidStandTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +416,7 @@
 				1C7899BD19E325EE000F4719 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
