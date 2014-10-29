@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var suppliesIceLabel: UILabel!
     @IBOutlet weak var lemonsInMixLabel: UILabel!
     @IBOutlet weak var iceInMixLabel: UILabel!
+    @IBOutlet weak var todaysRevenueLabel: UILabel!
+    @IBOutlet weak var todaysCostsLabel: UILabel!
+    @IBOutlet weak var todaysProfitLabel: UILabel!
 
     var lemonsPurchased: Int = 0
     var icePurchased: Int = 0
@@ -28,6 +31,9 @@ class ViewController: UIViewController {
     
     let priceOfLemon = 2
     let priceOfIce = 1
+    
+    var lemonaidRatio:Float = 0.0
+    var customerPref:[Float] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -165,27 +171,82 @@ class ViewController: UIViewController {
         {
             showAlertWithText(header: "Unable to Sell", message: "Add at least 1 lemon to your mix")
         }
-        else if iceInMix == 0
-        {
-            showAlertWithText(header: "Unable to Sell", message: "Add at least 1 ice to your mix")
-        }
+//        else if iceInMix == 0
+//        {
+//            showAlertWithText(header: "Unable to Sell", message: "Add at least 1 ice to your mix")
+//        }
         else
         {
-            let lemonaidRatio = lemonsInMix / iceInMix
-            let randNumbOfCustomersToday = Int(arc4random_uniform(UInt32(10)))
-            for (var i = 0; i <= randNumbOfCustomersToday; i++)
-            {
-                let randTastePrefference = Float(arc4random_uniform(UInt32(1.0)))
-                let customer = randTastePrefference
-                println(customer)
-            }
-            //
+            customerPref.removeAll(keepCapacity: false)
+            
+            lemonaidRatio = Float(lemonsInMix) / Float(iceInMix)
+            println("Leomaind Ratio: \(lemonaidRatio)")
+            
+            customerPrefferenceCreation(10)
+            gatherSalesForTheDay()
+            
+            lemonsInMix = 0
+            iceInMix = 0
+            lemonsPurchased = 0
+            icePurchased = 0
+            updateMainView()
+            
         }
         
         
     }
     
     //Helper Functions
+    func customerPrefferenceCreation(maxCustomers:Int) -> [Float]
+    {
+        let randNumbOfCustomersToday = Int(arc4random_uniform(UInt32(maxCustomers)))
+        
+        
+        for (var i = 0; i <= randNumbOfCustomersToday; i++)
+        {
+            customerPref.append(Float(arc4random_uniform(UInt32(100))) / 100)
+        }
+        println(customerPref)
+        return customerPref
+    }
+    
+    func gatherSalesForTheDay()
+    {
+        var todaysCosts = lemonsInMix * 2 + iceInMix
+        var todaysRevenue = 0
+        var todaysCustomers = customerPref.count
+        for (var i = 0; i < customerPref.count; i++)
+        {
+            if customerPref[i] < 0.4 && lemonaidRatio > 1
+            {
+                cashSupplies++
+                todaysRevenue++
+                println("\(customerPref[i]) Paid")
+            }
+            else if 0.41...0.6 ~= customerPref[i] && lemonaidRatio == 1
+            {
+                cashSupplies++
+                todaysRevenue++
+                println("\(customerPref[i]) Paid")
+            }
+            else if customerPref[i] > 0.6 && lemonaidRatio < 1
+            {
+                cashSupplies++
+                todaysRevenue++
+                println("\(customerPref[i]) Paid")
+            }
+            else
+            {
+                println("\(customerPref[i]) No Revenue")
+            }
+            todaysRevenueLabel.text = "Revenue: \(todaysRevenue)"
+            todaysCostsLabel.text = "Costs: \(todaysCosts)"
+            todaysProfitLabel.text = "Profits: \(todaysRevenue - todaysCosts)"
+            
+            updateMainView()
+        }
+    }
+    
     func updateMainView ()
     {
         numberOfLemonsPuchasedLabel.text = "\(lemonsPurchased)"
