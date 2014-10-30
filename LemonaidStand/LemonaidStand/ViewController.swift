@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var todaysRevenueLabel: UILabel!
     @IBOutlet weak var todaysCostsLabel: UILabel!
     @IBOutlet weak var todaysProfitLabel: UILabel!
+    @IBOutlet weak var weatherImageView: UIImageView!
 
     var lemonsPurchased: Int = 0
     var icePurchased: Int = 0
@@ -34,6 +35,7 @@ class ViewController: UIViewController {
     
     var lemonaidRatio:Float = 0.0
     var customerPref:[Float] = []
+    var additionalCustomers = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +84,7 @@ class ViewController: UIViewController {
         if priceOfIce <= cashSupplies
         {
             iceSupplies += 1
-            cashSupplies -= 2
+            cashSupplies -= 1
             icePurchased += 1
             
             updateMainView()
@@ -91,21 +93,23 @@ class ViewController: UIViewController {
         {
             showAlertWithText(message: "Not enough cash, make other arraingments")
         }
+        checkIfGameOver()
     }
     @IBAction func sellIceButtonPressed(sender: AnyObject)
     {
         if iceSupplies > 0
         {
             iceSupplies -= 1
-            cashSupplies += 2
+            cashSupplies += 1
             icePurchased -= 1
             
             updateMainView()
         }
         else
         {
-            showAlertWithText(message: "You have no more Lemons to sell")
+            showAlertWithText(message: "You have no more Ice to sell")
         }
+        checkIfGameOver()
     }
 
     @IBAction func moreLemonsInMixButtonPressed(sender: AnyObject)
@@ -173,23 +177,37 @@ class ViewController: UIViewController {
         }
 //        else if iceInMix == 0
 //        {
-//            showAlertWithText(header: "Unable to Sell", message: "Add at least 1 ice to your mix")
+//            
+//            
+////            showAlertWithText(header: "Unable to Sell", message: "Add at least 1 ice to your mix")
 //        }
         else
         {
             customerPref.removeAll(keepCapacity: false)
             
-            lemonaidRatio = Float(lemonsInMix) / Float(iceInMix)
+            if iceInMix == 0
+            {
+                lemonaidRatio = Float(lemonsInMix)
+            }
+            else
+            {
+                lemonaidRatio = Float(lemonsInMix) / Float(iceInMix)
+            }
+            
             println("Leomaind Ratio: \(lemonaidRatio)")
             
-            customerPrefferenceCreation(10)
+            additionalCustomers = additionalCustomersFromWeather()
+            
+            customerPrefferenceCreation(10, additionalCustomers: additionalCustomers)
             gatherSalesForTheDay()
             
             lemonsInMix = 0
             iceInMix = 0
             lemonsPurchased = 0
             icePurchased = 0
+            
             updateMainView()
+            checkIfGameOver()
             
         }
         
@@ -197,10 +215,32 @@ class ViewController: UIViewController {
     }
     
     //Helper Functions
-    func customerPrefferenceCreation(maxCustomers:Int) -> [Float]
+    func additionalCustomersFromWeather () -> Int
     {
-        let randNumbOfCustomersToday = Int(arc4random_uniform(UInt32(maxCustomers)))
+        var additionalCustomers:Int = 0
+        let randWeather = Int(arc4random_uniform(UInt32(2)))
         
+        switch randWeather
+        {
+        case 0:
+            weatherImageView.image = UIImage(named: "weatherCold")
+            additionalCustomers = -3
+        case 1:
+            weatherImageView.image = UIImage(named: "weatherMild")
+            additionalCustomers = 2
+        case 2:
+            weatherImageView.image = UIImage(named: "weatherWarm")
+            additionalCustomers = 5
+        default:
+            println("Check your random weather number")
+        }
+        
+        return additionalCustomers
+    }
+    
+    func customerPrefferenceCreation(maxCustomers:Int, additionalCustomers:Int) -> [Float]
+    {
+        let randNumbOfCustomersToday = Int(arc4random_uniform(UInt32(maxCustomers))) + additionalCustomers
         
         for (var i = 0; i <= randNumbOfCustomersToday; i++)
         {
@@ -223,7 +263,7 @@ class ViewController: UIViewController {
                 todaysRevenue++
                 println("\(customerPref[i]) Paid")
             }
-            else if 0.41...0.6 ~= customerPref[i] && lemonaidRatio == 1
+            else if 0.41...0.6 ~= customerPref[i] && 0.85...1.15 ~= lemonaidRatio
             {
                 cashSupplies++
                 todaysRevenue++
@@ -268,7 +308,20 @@ class ViewController: UIViewController {
         lemonsInMix = 0
         iceInMix = 0
         
+        todaysRevenueLabel.text = "Revenue: "
+        todaysCostsLabel.text = "Costs: "
+        todaysProfitLabel.text = "Profits: "
+        
         updateMainView()
+    }
+    
+    func checkIfGameOver()
+    {
+        if cashSupplies <= 1 && lemonSupplies == 0 && lemonsInMix == 0
+        {
+            showAlertWithText(header: "Game Over", message: "You don't have enough supplies to continue, Try Again?")
+            hardReset()
+        }
     }
     
     func showAlertWithText(header: String = "Warning", message: String)
@@ -277,5 +330,6 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         presentViewController(alert, animated: true, completion: nil)
     }
+
 }
 
