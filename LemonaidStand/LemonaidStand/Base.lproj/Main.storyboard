@@ -49,6 +49,9 @@
                                         <include reference="oXy-yT-oUd"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="82" y="252" width="240" height="190"/>
+                                </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lemon" translatesAutoresizingMaskIntoConstraints="NO" id="ubg-zS-4KC">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -120,6 +123,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="supplies" translatesAutoresizingMaskIntoConstraints="NO" id="x2b-ih-ko6">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.317737039" green="0.40803017079999998" blue="0.88166610050000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="82" y="65" width="240" height="187"/>
+                                </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="suppliesText" translatesAutoresizingMaskIntoConstraints="NO" id="Rqs-Gj-1IZ">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -150,6 +156,9 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact">
                                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="11"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="92" y="90" width="220" height="36"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Have:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTG-yE-2bs">
@@ -201,9 +210,6 @@
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="118" y="211" width="22" height="20"/>
-                                </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lemon" translatesAutoresizingMaskIntoConstraints="NO" id="6vp-PV-kbS">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -341,9 +347,6 @@
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="32" y="104" width="23" height="26"/>
-                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAc-wW-jW0">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -507,6 +510,9 @@
                                     <mask key="constraints">
                                         <include reference="hd4-xf-sBl"/>
                                     </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="7" y="301" width="66" height="43"/>
                                 </variation>
                                 <connections>
                                     <action selector="buyIceButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cba-LB-xgr"/>
@@ -862,8 +868,7 @@
                                         <exclude reference="FwS-sT-IXf"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="194" y="461" width="110" height="21"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="626-gs-61m"/>
                                         <include reference="FwS-sT-IXf"/>
