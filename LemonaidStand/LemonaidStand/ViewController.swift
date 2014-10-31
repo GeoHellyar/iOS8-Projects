@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         hardReset()
+        additionalCustomersFromWeather()
     }
 
     override func didReceiveMemoryWarning() {
@@ -218,7 +219,7 @@ class ViewController: UIViewController {
     func additionalCustomersFromWeather () -> Int
     {
         var additionalCustomers:Int = 0
-        let randWeather = Int(arc4random_uniform(UInt32(2)))
+        let randWeather = Int(arc4random_uniform(UInt32(3)))
         
         switch randWeather
         {
@@ -317,7 +318,7 @@ class ViewController: UIViewController {
     
     func checkIfGameOver()
     {
-        if cashSupplies <= 1 && lemonSupplies == 0 && lemonsInMix == 0
+        if cashSupplies <= 1 && lemonSupplies == 0 && lemonsInMix == 0 && iceInMix <= 1 && iceSupplies <= 1
         {
             showAlertWithText(header: "Game Over", message: "You don't have enough supplies to continue, Try Again?")
             hardReset()
