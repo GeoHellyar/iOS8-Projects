@@ -10,5 +10,14 @@ import Foundation
 
 
 struct Supplies {
+    var money = 0
+    var lemons = 0
+    var iceCubes = 0
     
+    init (aMoney:Int, aLemon:Int, aIceCube:Int)
+    {
+        money = aMoney
+        lemons = aLemon
+        iceCubes = aIceCube
+    }
 }
