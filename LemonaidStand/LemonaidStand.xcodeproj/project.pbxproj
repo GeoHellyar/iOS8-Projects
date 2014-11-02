@@ -13,6 +13,8 @@
 		1C7899A619E325EE000F4719 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C7899A519E325EE000F4719 /* Images.xcassets */; };
 		1C7899A919E325EE000F4719 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C7899A719E325EE000F4719 /* LaunchScreen.xib */; };
 		1C7899B519E325EE000F4719 /* LemonaidStandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7899B419E325EE000F4719 /* LemonaidStandTests.swift */; };
+		1CEBC0771A03C8AE00C2F68C /* Supplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEBC0761A03C8AE00C2F68C /* Supplies.swift */; };
+		1CEBC0791A05FC2B00C2F68C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEBC0781A05FC2B00C2F68C /* Price.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		1C7899AE19E325EE000F4719 /* LemonaidStandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LemonaidStandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C7899B319E325EE000F4719 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C7899B419E325EE000F4719 /* LemonaidStandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LemonaidStandTests.swift; sourceTree = "<group>"; };
+		1CEBC0761A03C8AE00C2F68C /* Supplies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Supplies.swift; path = ../Supplies.swift; sourceTree = "<group>"; };
+		1CEBC0781A05FC2B00C2F68C /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Price.swift; path = ../Price.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 				1C78999E19E325EE000F4719 /* AppDelegate.swift */,
 				1C7899A019E325EE000F4719 /* ViewController.swift */,
 				1C7899A219E325EE000F4719 /* Main.storyboard */,
+				1CEBC0761A03C8AE00C2F68C /* Supplies.swift */,
+				1CEBC0781A05FC2B00C2F68C /* Price.swift */,
 				1C7899A519E325EE000F4719 /* Images.xcassets */,
 				1C7899A719E325EE000F4719 /* LaunchScreen.xib */,
 				1C78999C19E325EE000F4719 /* Supporting Files */,
@@ -213,6 +219,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C7899A119E325EE000F4719 /* ViewController.swift in Sources */,
+				1CEBC0791A05FC2B00C2F68C /* Price.swift in Sources */,
+				1CEBC0771A03C8AE00C2F68C /* Supplies.swift in Sources */,
 				1C78999F19E325EE000F4719 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

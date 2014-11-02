@@ -20,18 +20,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var todaysRevenueLabel: UILabel!
     @IBOutlet weak var todaysCostsLabel: UILabel!
     @IBOutlet weak var todaysProfitLabel: UILabel!
+    @IBOutlet weak var todaysCustomersLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
 
+    var supplies = Supplies(aMoney: 10, aLemon: 1, aIceCube: 1)
+    let price = Price()
+    
     var lemonsPurchased: Int = 0
     var icePurchased: Int = 0
-    var lemonSupplies: Int = 0
-    var iceSupplies: Int = 0
-    var cashSupplies: Int = 0
+//    var lemonSupplies: Int = 0
+//    var iceSupplies: Int = 0
+//    var cashSupplies: Int = 0
     var lemonsInMix: Int = 0
     var iceInMix: Int = 0
     
-    let priceOfLemon = 2
-    let priceOfIce = 1
+//    let priceOfLemon = 2
+//    let priceOfIce = 1
     
     var lemonaidRatio:Float = 0.0
     var customerPref:[Float] = []
@@ -52,10 +56,10 @@ class ViewController: UIViewController {
 
     @IBAction func buyLemonButtonPressed(sender: AnyObject)
     {
-        if priceOfLemon <= cashSupplies
+        if price.lemon <= supplies.money
         {
-            lemonSupplies += 1
-            cashSupplies -= 2
+            supplies.lemons += 1
+            supplies.money -= 2
             lemonsPurchased += 1
             
             updateMainView()
@@ -67,10 +71,10 @@ class ViewController: UIViewController {
     }
     @IBAction func sellLemonButtonPressed(sender: AnyObject)
     {
-        if lemonSupplies > 0
+        if supplies.lemons > 0
         {
-            lemonSupplies -= 1
-            cashSupplies += 2
+            supplies.lemons -= 1
+            supplies.money += 2
             lemonsPurchased -= 1
             
             updateMainView()
@@ -82,10 +86,10 @@ class ViewController: UIViewController {
     }
     @IBAction func buyIceButtonPressed(sender: AnyObject)
     {
-        if priceOfIce <= cashSupplies
+        if price.iceCube <= supplies.money
         {
-            iceSupplies += 1
-            cashSupplies -= 1
+            supplies.iceCubes += 1
+            supplies.money -= 1
             icePurchased += 1
             
             updateMainView()
@@ -98,10 +102,10 @@ class ViewController: UIViewController {
     }
     @IBAction func sellIceButtonPressed(sender: AnyObject)
     {
-        if iceSupplies > 0
+        if supplies.iceCubes > 0
         {
-            iceSupplies -= 1
-            cashSupplies += 1
+            supplies.iceCubes -= 1
+            supplies.money += 1
             icePurchased -= 1
             
             updateMainView()
@@ -115,10 +119,10 @@ class ViewController: UIViewController {
 
     @IBAction func moreLemonsInMixButtonPressed(sender: AnyObject)
     {
-        if lemonSupplies > 0
+        if supplies.lemons > 0
         {
             lemonsInMix += 1
-            lemonSupplies -= 1
+            supplies.lemons -= 1
             
             updateMainView()
         }
@@ -132,7 +136,7 @@ class ViewController: UIViewController {
         if lemonsInMix > 0
         {
             lemonsInMix -= 1
-            lemonSupplies += 1
+            supplies.lemons += 1
             
             updateMainView()
         }
@@ -143,10 +147,10 @@ class ViewController: UIViewController {
     }
     @IBAction func moreIceInMixButtonPressed(sender: AnyObject)
     {
-        if iceSupplies > 0
+        if supplies.iceCubes > 0
         {
             iceInMix += 1
-            iceSupplies -= 1
+            supplies.iceCubes -= 1
             
             updateMainView()
         }
@@ -160,7 +164,7 @@ class ViewController: UIViewController {
         if iceInMix > 0
         {
             iceInMix -= 1
-            iceSupplies += 1
+            supplies.iceCubes += 1
             
             updateMainView()
         }
@@ -176,12 +180,6 @@ class ViewController: UIViewController {
         {
             showAlertWithText(header: "Unable to Sell", message: "Add at least 1 lemon to your mix")
         }
-//        else if iceInMix == 0
-//        {
-//            
-//            
-////            showAlertWithText(header: "Unable to Sell", message: "Add at least 1 ice to your mix")
-//        }
         else
         {
             customerPref.removeAll(keepCapacity: false)
@@ -260,19 +258,19 @@ class ViewController: UIViewController {
         {
             if customerPref[i] < 0.4 && lemonaidRatio > 1
             {
-                cashSupplies++
+                supplies.money++
                 todaysRevenue++
                 println("\(customerPref[i]) Paid")
             }
             else if 0.41...0.6 ~= customerPref[i] && 0.85...1.15 ~= lemonaidRatio
             {
-                cashSupplies++
+                supplies.money++
                 todaysRevenue++
                 println("\(customerPref[i]) Paid")
             }
             else if customerPref[i] > 0.6 && lemonaidRatio < 1
             {
-                cashSupplies++
+                supplies.money++
                 todaysRevenue++
                 println("\(customerPref[i]) Paid")
             }
@@ -280,9 +278,10 @@ class ViewController: UIViewController {
             {
                 println("\(customerPref[i]) No Revenue")
             }
-            todaysRevenueLabel.text = "Revenue: \(todaysRevenue)"
-            todaysCostsLabel.text = "Costs: \(todaysCosts)"
-            todaysProfitLabel.text = "Profits: \(todaysRevenue - todaysCosts)"
+            todaysRevenueLabel.text = "Revenue: $ \(todaysRevenue).00"
+            todaysCostsLabel.text = "Costs: $ \(todaysCosts).00"
+            todaysProfitLabel.text = "Profits: $ \(todaysRevenue - todaysCosts).00"
+            todaysCustomersLabel.text = "Customers: \(todaysRevenue) / \(customerPref.count)"
             
             updateMainView()
         }
@@ -292,23 +291,25 @@ class ViewController: UIViewController {
     {
         numberOfLemonsPuchasedLabel.text = "\(lemonsPurchased)"
         numberOfIcePurchasedLabel.text = "\(icePurchased)"
-        suppliesCashLabel.text = "\(cashSupplies)"
-        suppliesLemonsLabel.text = "\(lemonSupplies)"
-        suppliesIceLabel.text = "\(iceSupplies)"
+        suppliesCashLabel.text = "\(supplies.money)"
+        suppliesLemonsLabel.text = "\(supplies.lemons)"
+        suppliesIceLabel.text = "\(supplies.iceCubes)"
         lemonsInMixLabel.text = "\(lemonsInMix)"
         iceInMixLabel.text = "\(iceInMix)"
+
     }
     
     func hardReset ()
     {
         lemonsPurchased = 0
         icePurchased = 0
-        lemonSupplies = 6
-        iceSupplies = 9
-        cashSupplies = 20
+        supplies.lemons = 1
+        supplies.iceCubes = 1
+        supplies.money = 10
         lemonsInMix = 0
         iceInMix = 0
         
+        todaysCustomersLabel.text = "Customers: "
         todaysRevenueLabel.text = "Revenue: "
         todaysCostsLabel.text = "Costs: "
         todaysProfitLabel.text = "Profits: "
@@ -318,7 +319,7 @@ class ViewController: UIViewController {
     
     func checkIfGameOver()
     {
-        if cashSupplies <= 1 && lemonSupplies == 0 && lemonsInMix == 0 && iceInMix <= 1 && iceSupplies <= 1
+        if supplies.money <= 1 && supplies.lemons == 0 && lemonsInMix == 0 && iceInMix <= 1 && supplies.iceCubes <= 1
         {
             showAlertWithText(header: "Game Over", message: "You don't have enough supplies to continue, Try Again?")
             hardReset()
