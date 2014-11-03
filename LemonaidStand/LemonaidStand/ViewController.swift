@@ -35,12 +35,16 @@ class ViewController: UIViewController {
     var customerPref:[Float] = []
     var additionalCustomers = 0
     
+    var weatherArray: [[Int]] = [[-10,-9,-5,-7],[5,8,10,9],[22,25,27,23]]
+    var weatherToday:[Int] = [0,0,0,0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         hardReset()
-        additionalCustomersFromWeather()
+        simulateWeatherToday()
+//        additionalCustomers = additionalCustomersFromWeather()
     }
 
     override func didReceiveMemoryWarning() {
@@ -170,6 +174,7 @@ class ViewController: UIViewController {
 
     @IBAction func sellLemonaidButtonPressed(sender: AnyObject)
     {
+        let average = findAverage(weatherToday)
         if lemonsInMix == 0
         {
             showAlertWithText(header: "Unable to Sell", message: "Add at least 1 lemon to your mix")
@@ -189,9 +194,7 @@ class ViewController: UIViewController {
             
             println("Leomaind Ratio: \(lemonaidRatio)")
             
-            additionalCustomers = additionalCustomersFromWeather()
-            
-            customerPrefferenceCreation(10, additionalCustomers: additionalCustomers)
+            customerPrefferenceCreation(abs(average))
             gatherSalesForTheDay()
             
             lemonsInMix = 0
@@ -199,6 +202,9 @@ class ViewController: UIViewController {
             lemonsPurchased = 0
             icePurchased = 0
             
+//            additionalCustomers = additionalCustomersFromWeather()
+            
+            simulateWeatherToday()
             updateMainView()
             checkIfGameOver()
             
@@ -208,34 +214,34 @@ class ViewController: UIViewController {
     }
     
     //Helper Functions
-    func additionalCustomersFromWeather () -> Int
-    {
-        var additionalCustomers:Int = 0
-        let randWeather = Int(arc4random_uniform(UInt32(3)))
-        
-        switch randWeather
-        {
-        case 0:
-            weatherImageView.image = UIImage(named: "weatherCold")
-            additionalCustomers = -3
-        case 1:
-            weatherImageView.image = UIImage(named: "weatherMild")
-            additionalCustomers = 2
-        case 2:
-            weatherImageView.image = UIImage(named: "weatherWarm")
-            additionalCustomers = 5
-        default:
-            println("Check your random weather number")
-        }
-        
-        return additionalCustomers
-    }
+//    func additionalCustomersFromWeather () -> Int
+//    {
+//        var additionalCustomers:Int = 0
+//        let randWeather = Int(arc4random_uniform(UInt32(3)))
+//        
+//        switch randWeather
+//        {
+//        case 0:
+//            weatherImageView.image = UIImage(named: "weatherCold")
+//            additionalCustomers = -3
+//        case 1:
+//            weatherImageView.image = UIImage(named: "weatherMild")
+//            additionalCustomers = 2
+//        case 2:
+//            weatherImageView.image = UIImage(named: "weatherWarm")
+//            additionalCustomers = 5
+//        default:
+//            println("Check your random weather number")
+//        }
+//        
+//        return additionalCustomers
+//    }
     
-    func customerPrefferenceCreation(maxCustomers:Int, additionalCustomers:Int) -> [Float]
+    func customerPrefferenceCreation(maxCustomers:Int) -> [Float]
     {
-        let randNumbOfCustomersToday = Int(arc4random_uniform(UInt32(maxCustomers))) + additionalCustomers
+        let randNumbOfCustomersToday = Int(arc4random_uniform(UInt32(maxCustomers)))
         
-        for (var i = 0; i <= randNumbOfCustomersToday; i++)
+        for (var i = 0; i < randNumbOfCustomersToday; i++)
         {
             customerPref.append(Float(arc4random_uniform(UInt32(100))) / 100)
         }
@@ -325,6 +331,33 @@ class ViewController: UIViewController {
         var alert = UIAlertController(title: header, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func simulateWeatherToday() {
+        let index = Int(arc4random_uniform(UInt32(weatherArray.count)))
+        weatherToday = weatherArray[index]
+        
+        switch index {
+        case 0:
+            weatherImageView.image = UIImage(named: "weatherCold")
+        case 1:
+            weatherImageView.image = UIImage(named: "weatherMild")
+        case 2:
+            weatherImageView.image = UIImage(named: "weatherWarm")
+        default:
+            println("Check your random weather number")
+        }
+    }
+    
+    func findAverage(data:[Int]) -> Int {
+        var sum = 0
+        for x in data {
+            sum += x
+        }
+        
+        var average:Double = Double(sum) / Double(data.count)
+        var rounded:Int = Int(ceil(average))
+        return rounded
     }
 
 }
