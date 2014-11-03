@@ -28,14 +28,8 @@ class ViewController: UIViewController {
     
     var lemonsPurchased: Int = 0
     var icePurchased: Int = 0
-//    var lemonSupplies: Int = 0
-//    var iceSupplies: Int = 0
-//    var cashSupplies: Int = 0
     var lemonsInMix: Int = 0
     var iceInMix: Int = 0
-    
-//    let priceOfLemon = 2
-//    let priceOfIce = 1
     
     var lemonaidRatio:Float = 0.0
     var customerPref:[Float] = []
