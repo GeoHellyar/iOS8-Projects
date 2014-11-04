@@ -66,11 +66,53 @@
                     <navigationItem key="navigationItem" id="faR-dI-y1u"/>
                     <connections>
                         <outlet property="tableView" destination="LxV-dz-kd6" id="JF5-6N-wu7"/>
+                        <segue destination="aFM-s2-qAf" kind="show" identifier="showTaskDetail" id="QW4-kf-EMP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1488" y="479"/>
+        </scene>
+        <!--Task Detail View Controller-->
+        <scene sceneID="akb-Bq-EV9">
+            <objects>
+                <viewController id="aFM-s2-qAf" customClass="TaskDetailViewController" customModule="TaskIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EEt-PO-BR1"/>
+                        <viewControllerLayoutGuide type="bottom" id="z7L-a1-1b1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YDx-iX-pIs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="task" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKv-GT-uXR">
+                                <rect key="frame" x="16" y="90" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="description" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BRr-9A-wK1">
+                                <rect key="frame" x="16" y="140" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="EgR-hq-ouu">
+                                <rect key="frame" x="0.0" y="199" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="436804435.54022098">
+                                    <!--2014-11-04 14:33:55 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="BRr-9A-wK1" id="FC9-2d-s8y"/>
+                        <outlet property="dueDatePicker" destination="EgR-hq-ouu" id="X9v-2E-ErP"/>
+                        <outlet property="taskTextField" destination="xKv-GT-uXR" id="p9c-le-Oez"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WmT-wg-R1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2186" y="479"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="s8J-aB-4jr">
@@ -80,6 +122,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7fh-aT-59B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.34495712070000001" green="0.47860054349999998" blue="0.2821754776" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
