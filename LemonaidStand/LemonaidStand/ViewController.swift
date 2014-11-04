@@ -202,8 +202,6 @@ class ViewController: UIViewController {
             lemonsPurchased = 0
             icePurchased = 0
             
-//            additionalCustomers = additionalCustomersFromWeather()
-            
             simulateWeatherToday()
             updateMainView()
             checkIfGameOver()
@@ -214,28 +212,6 @@ class ViewController: UIViewController {
     }
     
     //Helper Functions
-//    func additionalCustomersFromWeather () -> Int
-//    {
-//        var additionalCustomers:Int = 0
-//        let randWeather = Int(arc4random_uniform(UInt32(3)))
-//        
-//        switch randWeather
-//        {
-//        case 0:
-//            weatherImageView.image = UIImage(named: "weatherCold")
-//            additionalCustomers = -3
-//        case 1:
-//            weatherImageView.image = UIImage(named: "weatherMild")
-//            additionalCustomers = 2
-//        case 2:
-//            weatherImageView.image = UIImage(named: "weatherWarm")
-//            additionalCustomers = 5
-//        default:
-//            println("Check your random weather number")
-//        }
-//        
-//        return additionalCustomers
-//    }
     
     func customerPrefferenceCreation(maxCustomers:Int) -> [Float]
     {
