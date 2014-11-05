@@ -23,7 +23,7 @@ class TaskDetailViewController: UIViewController {
         
         taskTextField.text = detailTaskModel.task
         descriptionTextField.text = detailTaskModel.subTask
-//        dueDatePicker.date = detailTaskModel.date
+        dueDatePicker.date = detailTaskModel.date
         
     }
 
@@ -32,4 +32,8 @@ class TaskDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func didCancelButtonPressed(sender: AnyObject) {
+        
+        navigationController?.popViewControllerAnimated(true)
+    }
 }

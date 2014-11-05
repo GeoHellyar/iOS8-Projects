@@ -49,6 +49,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
     }
+    
+    @IBAction func addButtonPressed(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("showAddTask", sender: self)
+        
+    }
+    
 
     //UITableViewDataSource
     
@@ -65,7 +71,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
             cell.taskLabel.text = thisTask.task
             cell.descriptionLabel.text = thisTask.subTask
-            cell.taskDateLabel.text = thisTask.date
+            cell.taskDateLabel.text = Date.toString(date: thisTask.date)
     
         return cell
     }
