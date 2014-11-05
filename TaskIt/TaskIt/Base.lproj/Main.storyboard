@@ -118,7 +118,11 @@
                                 <action selector="didCancelButtonPressed:" destination="aFM-s2-qAf" id="PqJ-kl-IHg"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="nxS-hD-Hin"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="nxS-hD-Hin">
+                            <connections>
+                                <action selector="doneBarButtonPessed:" destination="aFM-s2-qAf" id="axH-yK-s9K"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

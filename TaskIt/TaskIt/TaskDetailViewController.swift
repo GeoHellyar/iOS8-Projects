@@ -11,6 +11,7 @@ import UIKit
 class TaskDetailViewController: UIViewController {
 
     var detailTaskModel: TaskModel!
+    var mainVC:ViewController!
     
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
@@ -33,6 +34,15 @@ class TaskDetailViewController: UIViewController {
     }
 
     @IBAction func didCancelButtonPressed(sender: AnyObject) {
+        
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func doneBarButtonPessed(sender: UIBarButtonItem) {
+        
+        var task = TaskModel(task: taskTextField.text, subTask: descriptionTextField.text, date: dueDatePicker.date, isCompleted: false)
+        
+        mainVC.baseArray[0][mainVC.tableView.indexPathForSelectedRow()!.row] = task
         
         navigationController?.popViewControllerAnimated(true)
     }
