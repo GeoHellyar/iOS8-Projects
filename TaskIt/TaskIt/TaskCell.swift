@@ -13,6 +13,7 @@ class TaskCell: UITableViewCell {
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var taskDateLabel: UILabel!
+    @IBOutlet weak var taskPriceTextField: UITextField!
     
     
     
