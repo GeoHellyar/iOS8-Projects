@@ -122,14 +122,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        })
 //        postponeAWeekAction.backgroundColor = UIColor(red: 61/255, green: 154/255, blue: 233/255, alpha: 1)
         
-        var uncompleteAction = UITableViewRowAction(style: .Default, title: "Uncomplete", handler: { (tvra:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        var uncompleteAction = UITableViewRowAction(style: .Default, title: "Uncomplete", handler: { (action, indexPath) -> Void in
             thisTask.completed = false
             println(thisTask.completed)
             (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
         })
         uncompleteAction.backgroundColor = UIColor(red: 233/255, green: 182/255, blue: 61/255, alpha: 1)
         
-        var deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (tvra:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        var deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action, indexPath) -> Void in
             
 //            self.managedObjectContext.deleteObject(thisTask)
 
