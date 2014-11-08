@@ -132,6 +132,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         var deleteAction = UITableViewRowAction(style: .Default, title: "Delete", handler: { (action, indexPath) -> Void in
             
 //            self.managedObjectContext.deleteObject(thisTask)
+            tableView.deleteRowsAtIndexPaths([indexPath.row], withRowAnimation: .Fade)
+            (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
 
         })
         deleteAction.backgroundColor = UIColor(red: 203/255, green: 76/255, blue: 76/255, alpha: 1)
