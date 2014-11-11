@@ -15,6 +15,8 @@
 		1CEAB1491A0BBA83002EE0BB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CEAB1481A0BBA83002EE0BB /* CoreData.framework */; };
 		1CEAB14C1A0BBCA0002EE0BB /* TaskItModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CEAB14A1A0BBCA0002EE0BB /* TaskItModel.xcdatamodeld */; };
 		1CEAB14E1A0BBD99002EE0BB /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEAB14D1A0BBD99002EE0BB /* TaskModel.swift */; };
+		1CEAB18D1A11A60F002EE0BB /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEAB18A1A11A60F002EE0BB /* MGSwipeButton.m */; };
+		1CEAB18E1A11A60F002EE0BB /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CEAB18C1A11A60F002EE0BB /* MGSwipeTableCell.m */; };
 		1CFBC1A01A090A1500C2F6B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFBC19F1A090A1500C2F6B5 /* AppDelegate.swift */; };
 		1CFBC1A21A090A1500C2F6B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFBC1A11A090A1500C2F6B5 /* ViewController.swift */; };
 		1CFBC1A51A090A1500C2F6B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CFBC1A31A090A1500C2F6B5 /* Main.storyboard */; };
@@ -42,6 +44,11 @@
 		1CEAB1481A0BBA83002EE0BB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1CEAB14B1A0BBCA0002EE0BB /* TaskItModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskItModel.xcdatamodel; sourceTree = "<group>"; };
 		1CEAB14D1A0BBD99002EE0BB /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TaskModel.swift; path = ../TaskModel.swift; sourceTree = "<group>"; };
+		1CEAB1891A11A60F002EE0BB /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
+		1CEAB18A1A11A60F002EE0BB /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
+		1CEAB18B1A11A60F002EE0BB /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
+		1CEAB18C1A11A60F002EE0BB /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
+		1CEAB18F1A11A6A1002EE0BB /* TaskIt-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TaskIt-Bridging-Header.h"; path = "TaskIt/TaskIt-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		1CFBC19A1A090A1500C2F6B5 /* TaskIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CFBC19E1A090A1500C2F6B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CFBC19F1A090A1500C2F6B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +88,18 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
+		1CEAB1881A11A60F002EE0BB /* MGSwipeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				1CEAB1891A11A60F002EE0BB /* MGSwipeButton.h */,
+				1CEAB18A1A11A60F002EE0BB /* MGSwipeButton.m */,
+				1CEAB18B1A11A60F002EE0BB /* MGSwipeTableCell.h */,
+				1CEAB18C1A11A60F002EE0BB /* MGSwipeTableCell.m */,
+				1CEAB18F1A11A6A1002EE0BB /* TaskIt-Bridging-Header.h */,
+			);
+			path = MGSwipeTableCell;
+			sourceTree = "<group>";
+		};
 		1CFBC1911A090A1500C2F6B5 = {
 			isa = PBXGroup;
 			children = (
@@ -102,7 +121,7 @@
 		1CFBC19C1A090A1500C2F6B5 /* TaskIt */ = {
 			isa = PBXGroup;
 			children = (
-				1CEAB1451A0BAC58002EE0BB /* Assets */,
+				1CEAB1881A11A60F002EE0BB /* MGSwipeTableCell */,
 				1CFBC19F1A090A1500C2F6B5 /* AppDelegate.swift */,
 				1CFBC1A11A090A1500C2F6B5 /* ViewController.swift */,
 				1C054C031A091AB700739E8D /* TaskDetailViewController.swift */,
@@ -114,6 +133,7 @@
 				1CFBC1A31A090A1500C2F6B5 /* Main.storyboard */,
 				1CFBC1A61A090A1500C2F6B5 /* Images.xcassets */,
 				1CFBC1A81A090A1500C2F6B5 /* LaunchScreen.xib */,
+				1CEAB1451A0BAC58002EE0BB /* Assets */,
 				1CFBC19D1A090A1500C2F6B5 /* Supporting Files */,
 			);
 			path = TaskIt;
@@ -249,11 +269,13 @@
 				1CFBC1A21A090A1500C2F6B5 /* ViewController.swift in Sources */,
 				1CEAB14C1A0BBCA0002EE0BB /* TaskItModel.xcdatamodeld in Sources */,
 				1C054C061A0920D300739E8D /* Date.swift in Sources */,
+				1CEAB18D1A11A60F002EE0BB /* MGSwipeButton.m in Sources */,
 				1C054C001A0910B200739E8D /* TaskCell.swift in Sources */,
 				1CFBC1A01A090A1500C2F6B5 /* AppDelegate.swift in Sources */,
 				1C054C041A091AB700739E8D /* TaskDetailViewController.swift in Sources */,
 				1CEAB14E1A0BBD99002EE0BB /* TaskModel.swift in Sources */,
 				1CEAB1441A0A5BC1002EE0BB /* AddTaskViewController.swift in Sources */,
+				1CEAB18E1A11A60F002EE0BB /* MGSwipeTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +403,7 @@
 				INFOPLIST_FILE = TaskIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/bradhellyar/Documents/iOS8_Tutorial_Apps/iOS8-Projects/TaskIt/TaskIt/TaskIt-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -391,6 +414,7 @@
 				INFOPLIST_FILE = TaskIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/bradhellyar/Documents/iOS8_Tutorial_Apps/iOS8-Projects/TaskIt/TaskIt/TaskIt-Bridging-Header.h";
 			};
 			name = Release;
 		};
