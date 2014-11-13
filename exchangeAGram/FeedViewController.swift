@@ -36,27 +36,42 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBAction func snapBarButtonPressed(sender: UIBarButtonItem) {
         
-        let imagePickerContoller = UIImagePickerController()
-        var presentableController: UIViewController = imagePickerContoller
-        let mediaTypes:[AnyObject] = [kUTTypeImage]
-        imagePickerContoller.mediaTypes = mediaTypes
-        imagePickerContoller.allowsEditing = false
-        
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
 
-            imagePickerContoller.sourceType = UIImagePickerControllerSourceType.Camera
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            var cameraController = UIImagePickerController()
+            cameraController.delegate = self
+            cameraController.sourceType = UIImagePickerControllerSourceType.Camera
+            
+            let mediaTypes:[AnyObject] = [kUTTypeImage]
+            cameraController.mediaTypes = mediaTypes
+            cameraController.allowsEditing = false
+            
+            self.presentViewController(cameraController, animated: true, completion: nil)
         }
         else if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
             
-            imagePickerContoller.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            var photoLibraryController = UIImagePickerController()
+            photoLibraryController.delegate = self
+            photoLibraryController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            
+            let mediaTypes:[AnyObject] = [kUTTypeImage]
+            photoLibraryController.mediaTypes = mediaTypes
+            photoLibraryController.allowsEditing = false
+            
+            self.presentViewController(photoLibraryController, animated: true, completion: nil)
         }
-        else {
-            var alertController  = UIAlertController(title: "Alert", message: "This device doesn't supoort Camera or Photo Library", preferredStyle: .Alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            presentableController = alertController
+        else if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
+            
+            var photoLibraryController = UIImagePickerController()
+            photoLibraryController.delegate = self
+            photoLibraryController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            
+            let mediaTypes:[AnyObject] = [kUTTypeImage]
+            photoLibraryController.mediaTypes = mediaTypes
+            photoLibraryController.allowsEditing = false
+            
+            self.presentViewController(photoLibraryController, animated: true, completion: nil)
         }
-        
-        self.presentViewController(presentableController, animated: true, completion: nil)
     }
     
     
@@ -75,7 +90,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         var cell:FeedCell = collectionView.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath) as FeedCell
-        
+
         //Add data in feedcell
         let thisItem = feedArray[indexPath.row] as FeedItem
         cell.imageView.image = UIImage(data: thisItem.image)
@@ -84,8 +99,17 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         return cell
     }
     
-    
     //UICollectionViewDelegate
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let thisItem = feedArray[indexPath.row] as FeedItem
+        
+        var filterVC = FilterViewController()
+        filterVC.thisFeedItem = thisItem
+        
+        self.navigationController?.pushViewController(filterVC, animated: false)
+        
+    }
     
     //UIImagePickerControllerDelegate
     

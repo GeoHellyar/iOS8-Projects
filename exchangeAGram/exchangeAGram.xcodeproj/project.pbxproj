@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C4172E11A14F7DF008CB3D9 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4172E01A14F7DF008CB3D9 /* FilterCell.swift */; };
 		1CEAB15E1A0E51A3002EE0BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEAB15D1A0E51A3002EE0BB /* AppDelegate.swift */; };
 		1CEAB1611A0E51A3002EE0BB /* exchangeAGram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CEAB15F1A0E51A3002EE0BB /* exchangeAGram.xcdatamodeld */; };
 		1CEAB1661A0E51A3002EE0BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CEAB1641A0E51A3002EE0BB /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C4172E01A14F7DF008CB3D9 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		1CEAB1581A0E51A3002EE0BB /* exchangeAGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = exchangeAGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CEAB15C1A0E51A3002EE0BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CEAB15D1A0E51A3002EE0BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				1CEAB1901A125843002EE0BB /* FilterViewController.swift */,
 				1CEAB1801A0E52E7002EE0BB /* FeedViewController.swift */,
 				1CEAB1841A0E59F0002EE0BB /* FeedCell.swift */,
+				1C4172E01A14F7DF008CB3D9 /* FilterCell.swift */,
 				1CEAB1641A0E51A3002EE0BB /* Main.storyboard */,
 				1CEAB1861A0E5DFA002EE0BB /* FeedItem.swift */,
 				1CEAB1671A0E51A3002EE0BB /* Images.xcassets */,
@@ -228,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C4172E11A14F7DF008CB3D9 /* FilterCell.swift in Sources */,
 				1CEAB1911A125843002EE0BB /* FilterViewController.swift in Sources */,
 				1CEAB15E1A0E51A3002EE0BB /* AppDelegate.swift in Sources */,
 				1CEAB1851A0E59F0002EE0BB /* FeedCell.swift in Sources */,
